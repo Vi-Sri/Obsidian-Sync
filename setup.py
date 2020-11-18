@@ -8,7 +8,15 @@ dependencies = ['pyobjc',
 
 APP = ['obsidiansync/sync.py']
 DATA_FILES = []
-OPTIONS = {}
+OPTIONS = {
+    'argv_emulation': True,
+    'iconfile': 'assets/obsidian.png',
+    'plist': {
+        'CFBundleShortVersionString': '0.2.0',
+        'LSUIElement': True,
+    },
+    'packages': ['rumps'],
+}
 
 
 setup(
@@ -28,6 +36,7 @@ setup(
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
+    install_requires=dependencies,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
